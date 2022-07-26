@@ -1,0 +1,419 @@
+@import "./SCSS/null";
+@import "./SCSS/var";
+@import "./SCSS/main";
+/*Header*/
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    border-bottom: 1px solid $colorSecond;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f5f5f5;
+        z-index: 2;
+    }
+    &__body {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        height: 60px;
+        align-items: center;
+    }
+
+    &__logo {
+        position: relative;
+        z-index: 3;
+        & img {
+            max-width: 100%;
+            display: block;
+        }
+    }
+
+    &__burger {
+        display: none;
+    }
+
+    &__list {
+        display: flex;
+        position: relative;
+        z-index: 2;
+        & li {
+            list-style: none;
+            margin-left: 40px;
+        }
+    }
+
+    &__link {
+        font-size: 14px;
+    }
+}
+/*Main*/
+.main {
+    padding-top: 90px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #e6e6e6;
+    &__body {
+        display: flex;
+        margin-bottom: 60px;
+    }
+
+    &__img {
+        min-width: 721px;
+    }
+
+    &__text {
+        padding-left: 50px;
+    }
+
+    &__category {
+        margin: 0 0 15px;
+
+    }
+
+    &__title {
+        font-size: 36px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 25px;
+    }
+
+    &__subtitle {
+        color: #666666;
+        font-size: 16px;
+        padding-bottom: 25px;
+    }
+    &__inner {
+        margin: 0 -5px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        width: 32%;
+        margin: 0 5px 50px 5px;
+        padding: 5px;
+        transition: all .2s linear;
+        &:hover {
+            background-color: #e5e5e5;
+        }
+    }
+}
+/*Latest*/
+.latest {
+    margin: 0 0 90px;
+    border-bottom: 1px solid #e6e6e6;
+    &__body {
+        padding-bottom: 90px;
+    }
+    &__inner {
+        margin: 0 -5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__item {
+        width: 24%;
+        margin: 0 5px 50px 5px;
+        padding: 5px;
+        transition: all .2s linear;
+        &:hover {
+            background-color: #e5e5e5;
+        }
+    }
+}
+/*Featured*/
+.featured {
+    margin: 0 0 20px;
+    &__inner {
+        margin: 0 -5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__item {
+        width: 49%;
+        margin: 0 5px 50px 5px;
+        padding: 5px;
+        transition: all .2s linear;
+        &:hover {
+            background-color: #e5e5e5;
+        }
+    }
+}
+
+.section {
+    &__name {
+        text-transform: uppercase;
+        font-family: $fontSecond;
+        color: $colorSecond;
+        font-size: 10px;
+        transition: all .2s linear;
+        padding: 90px 0 30px;
+        }
+}
+.item {
+
+    &__img {
+        display: block;
+        margin-bottom: 25px;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__category {
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+}
+
+.category {
+    text-transform: uppercase;
+    font-family: $fontSecond;
+    color: $colorSecond;
+    font-size: 10px;
+    transition: all .2s linear;
+    &:hover {
+        color: #000000;
+    }
+}
+.author {
+    text-transform: uppercase;
+    font-family: $fontSecond;
+    font-weight: 700;
+    color: #000000;
+    font-size: 10px;
+}
+
+
+/*Adaptive*/
+@media(max-width: 767px) {
+    body {
+        &.lock {
+            overflow: hidden;
+        }
+    }
+    .header {
+        max-width: 100%;
+		&__body {
+            height: 50px;
+		}
+
+		&__logo {
+            flex: 0 0 150px;
+		}
+
+		&__burger {
+            display: block;
+            position: relative;
+            width: 30px;
+            height: 20px;
+            z-index: 3;
+            & span {
+                position: absolute;
+                background-color: #292f36;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                top: 9px;
+                transition: all .2s linear;
+            }
+            &::before, &::after {
+                content: '';
+                background-color: #292f36;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                left: 0;
+                transition: all .2s linear;
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+            &.active {
+                & span {
+                    transform: scale(0);
+                }
+                &::before{
+                    transform: rotate(45deg);
+                    top: 9px;
+                }
+                &::after{
+                    transform: rotate(-45deg);
+                    bottom: 9px;
+                }
+            }
+		}
+
+		&__menu {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f5f5f5;
+            padding: 90px 10px 20px 10px;
+            transition: all .2s linear;
+            overflow: auto;
+            &.active {
+                top: 0;
+            }
+		}
+
+		&__list {
+            display: block;
+            & li {
+                margin:0 0 20px 0;
+            }
+		}
+
+		&__link {
+            font-size: 30px;
+		}
+    }
+    .main {
+        margin: 10px 0 19px;
+        border-bottom: 1px solid #e6e6e6;
+        &__body {
+            display: block;
+            margin-bottom: 20px;
+        }
+    
+        &__img {
+            min-width: auto;
+        }
+    
+        &__text {
+            padding-left: 0px;
+        }
+    
+        &__category {
+            margin: 0 0 15px;
+    
+        }
+    
+        &__title {
+            font-size: 20px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+    
+        &__subtitle {
+            color: #666666;
+            font-size: 13px;
+            padding-bottom: 5px;
+        }
+        &__inner {
+            margin: 0 -5px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    
+        &__item {
+            width: 46%;
+            margin: 0 5px 15px 5px;
+            padding: 5px;
+            transition: all .2s linear;
+            &:hover {
+                background-color: #e5e5e5;
+            }
+        }
+    }
+    .item {
+        &__img {
+            display: block;
+            margin-bottom: 10px;
+        }
+    
+        &__text {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        &__category {
+            margin-bottom: 10px;
+        }
+    
+        &__title {
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+    }
+    .latest {
+        margin: 0 0 40px;
+        border-bottom: 1px solid #e6e6e6;
+        &__body {
+            padding-bottom: 40px;
+        }
+        &__inner {
+            margin: 0 -5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    
+        &__item {
+            width: 46%;
+            margin: 0 5px 15px 5px;
+            padding: 5px;
+            transition: all .2s linear;
+            &:hover {
+                background-color: #e5e5e5;
+            }
+        }
+    }
+    .featured {
+        margin: 0 0 20px;
+        &__inner {
+            margin: 0 -5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    
+        &__item {
+            width: 46%;
+            margin: 0 5px 15px 5px;
+            padding: 5px;
+            transition: all .2s linear;
+            &:hover {
+                background-color: #e5e5e5;
+            }
+        }
+    }
+    .section {
+        &__name {
+            text-transform: uppercase;
+            font-family: $fontSecond;
+            color: $colorSecond;
+            font-size: 10px;
+            transition: all .2s linear;
+            padding: 30px 0 20px;
+            }
+    }
+}
+
+
+
